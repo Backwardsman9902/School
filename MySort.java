@@ -13,13 +13,14 @@ public class MySort {
 			
 			while(current != last.next) {
 				if (current.element.compareTo(pivot) < 0) {
+					MyNode<E> temp = new MyNode<E>(current.element);
 					previous.next = current.next;
-					
+					temp.next = first;
+					first = temp;
 				}
-				else {
-					first = new MyNode<E>(current.element);
-					
-				}
+				
+				previous = previous.next;
+				current = current.next;
 				
 			
 			}
