@@ -11,18 +11,18 @@ public class MySort {
 			MyNode<E> previous = first;
 			
 			
-			while(current != last.next) {
+			while(previous != last && current != null) {
 				if (current.element.compareTo(pivot) < 0) {
-					MyNode<E> temp = new MyNode<E>(current.element);
 					previous.next = current.next;
-					temp.next = first;
-					first = temp;
+					first = current;
+					first.next = previous;
+					current = previous.next;
 				}
-				
-				previous = previous.next;
-				current = current.next;
-				
-			//recursive calls will go here
+				else {
+					previous = previous.next;
+					current = current.next;
+				}
+				//recursive calls will go here
 			}
 			
 		}
